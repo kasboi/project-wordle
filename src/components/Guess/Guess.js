@@ -1,51 +1,15 @@
 import React from "react"
+import { range } from "../../utils"
 
-function Guess() {
+function Guess({ value }) {
     return (
-        <div class="guess-results">
-            <p class="guess">
-                <span class="cell">H</span>
-                <span class="cell">E</span>
-                <span class="cell">L</span>
-                <span class="cell">L</span>
-                <span class="cell">O</span>
-            </p>
-            <p class="guess">
-                <span class="cell">T</span>
-                <span class="cell">H</span>
-                <span class="cell">E</span>
-                <span class="cell">R</span>
-                <span class="cell">E</span>
-            </p>
-            <p class="guess">
-                <span class="cell">W</span>
-                <span class="cell">O</span>
-                <span class="cell">R</span>
-                <span class="cell">L</span>
-                <span class="cell">D</span>
-            </p>
-            <p class="guess">
-                <span class="cell"></span>
-                <span class="cell"></span>
-                <span class="cell"></span>
-                <span class="cell"></span>
-                <span class="cell"></span>
-            </p>
-            <p class="guess">
-                <span class="cell"></span>
-                <span class="cell"></span>
-                <span class="cell"></span>
-                <span class="cell"></span>
-                <span class="cell"></span>
-            </p>
-            <p class="guess">
-                <span class="cell"></span>
-                <span class="cell"></span>
-                <span class="cell"></span>
-                <span class="cell"></span>
-                <span class="cell"></span>
-            </p>
-        </div>
+        <p className="guess">
+            {range(5).map((num) => (
+                <span key={num} className={`cell ${value && value[num].status}`}>
+                    {value && value[num].letter}
+                </span>
+            ))}
+        </p>
     )
 }
 
